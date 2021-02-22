@@ -177,3 +177,45 @@ config :bird_app_ui, BirdAppUiWeb.Endpoint,
   force_ssl: [hsts: true]
 # ...
 ```
+
+## Changes to add sdcard name and make changes to iex.exs in firmware folder.
+
+This section added after cloning from https://git.coco.study/dkhaapam/bird_app
+You need to make changes to config.exs, target.exs and add fwup.conf and cmdline.txt to the config folder.
+
+Copy fwup.conf to Your config/ Directory
+See Overwriting Files in the Boot Partition in https://hexdocs.pm/nerves/advanced-configuration.html
+
+```
+# Locate the fwup.conf files available in your deps directory
+find deps -name fwup.conf
+# Copy the one that matches your target to the config directory.
+cp deps/nerves_system_rpi0/fwup.conf config/
+# Also copy cmdline.txt as you'll need it below.
+cp deps/nerves_system_rpi0/cmdline.txt config/
+```
+
+edit the folowing 3 lines in config/fwup.conf and change BOOT-A and BOOT-B to nerves app name.
+
+```
+fat_setlabel(${BOOT_A_PART_OFFSET}, "RVAPP-A")
+fat_setlabel(${BOOT_A_PART_OFFSET}, "RVAPP-A")
+fat_setlabel(${BOOT_B_PART_OFFSET}, "RVAPP-B")
+```
+
+
+Changes to config.exs
+
+```
+config :nerves, :firmware, 
+  rootfs_overlay: "rootfs_overlay",
+  fwup_conf: "config/fwup.conf"
+
+```
+
+Changes to target.exs
+```
+# This line adds project name to iex prompt on rpi command line.
+config :iex, default_prompt: "%prefix(%counter)_rvapp>"
+
+```
