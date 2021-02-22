@@ -34,6 +34,8 @@ config :shoehorn,
 
 config :nerves_runtime, :kernel, use_system_registry: false
 
+# This line adds prject name to iex prompt on rpi command line.
+config :iex, default_prompt: "%prefix(%counter)_rvapp>"
 # Erlinit can be configured without a rootfs_overlay. See
 # https://github.com/nerves-project/erlinit/ for more information on
 # configuring erlinit.
