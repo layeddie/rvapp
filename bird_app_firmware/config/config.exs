@@ -5,12 +5,15 @@
 # is restricted to this project.
 import Config
 
+# replace project name (bird_app_firmware) with rvapp name to use in projects/learn/rvapp/bird_app_firmware/rootfs_overlay/etc/iex.exs
 config :bird_app_firmware, target: Mix.target()
 
 # Customize non-Elixir parts of the firmware. See
 # https://hexdocs.pm/nerves/advanced-configuration.html for details.
 
-config :nerves, :firmware, rootfs_overlay: "rootfs_overlay"
+config :nerves, :firmware, 
+  rootfs_overlay: "rootfs_overlay",
+  fwup_conf: "config/fwup.conf"
 
 # Set the SOURCE_DATE_EPOCH date for reproducible builds.
 # See https://reproducible-builds.org/docs/source-date-epoch/ for more information
