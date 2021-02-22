@@ -204,7 +204,7 @@ fat_setlabel(${BOOT_B_PART_OFFSET}, "RVAPP-B")
 ```
 
 
-Changes to config.exs
+Changes to config.exs to add new path to config/fwup.conf
 
 ```
 config :nerves, :firmware, 
