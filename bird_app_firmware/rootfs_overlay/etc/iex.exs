@@ -1,31 +1,18 @@
+# New Nerves Logo
+IO.puts("""
+\e[34m████▄▖    \e[36m▐███
+\e[34m█▌  ▀▜█▙▄▖  \e[36m▐█
+\e[34m█▌ \e[36m▐█▄▖\e[34m▝▀█▌ \e[36m▐█   \e[39mN  E  R  V  E  S
+\e[34m█▌   \e[36m▝▀█▙▄▖ ▐█
+\e[34m███▌    \e[36m▀▜████\e[0m
+""")
+
 # Add Toolshed helpers to the IEx session
+
 use Toolshed
 
 if RingLogger in Application.get_env(:logger, :backends, []) do
   IO.puts([
-    IO.ANSI.color(5),
-    """
-    Elixir Nerves Project
-
-                    ;kX'
-                  ,0XXXl
-                 xNXNNXX.
-               'KNNXXXXX0.
-              ;XNNNNNNNNN0.
-             ;XNNNNNNNNNNNX:
-            .XNNNXXXXXXXXXXXO.
-            kNNNXNNNNXXNXXNNXNo
-           .NNNXNNNNNXXNNXNNXXXO
-           cXXXNNNNNNXXNNNNNNNNNd
-           lNNNNNNNNNXXNXXXNNNNNK
-           'NNXNXNXXXXXXXXXNNNNNk
-            oNXNXXXXXNXXXNNNNXXX.
-             :KXXXXXXNXXXNNNNXk.
-               ;xXNXXXXNXXX0o.
-                  .',::;,.
-
-    """,
-    IO.ANSI.reset(),
     """
     SDcard Label:  Rvapp (bird_app_firmware)
     Nerves Project: Rvapp (bird_app_firmware)
