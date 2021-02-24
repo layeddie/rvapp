@@ -181,6 +181,7 @@ config :bird_app_ui, BirdAppUiWeb.Endpoint,
 ## Changes to add sdcard name and make changes to iex.exs in firmware folder.
 
 This section added after cloning from https://git.coco.study/dkhaapam/bird_app
+
 You need to make changes to config.exs, target.exs and add fwup.conf and cmdline.txt to the config folder.
 (Note: Manual process until I can work out how to do this with variable substitution)
 
